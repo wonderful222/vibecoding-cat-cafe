@@ -15,12 +15,7 @@ export default function ReservationsPage() {
 
   return (
     <AppShell>
-      <main className="space-y-6 px-6 pb-6 pt-8">
-        <section>
-          <p className="text-sm text-muted-foreground">我的预约</p>
-          <h1 className="mt-2 text-2xl font-bold text-foreground">确认接下来要见的小猫。</h1>
-        </section>
-
+      <main className="space-y-6 px-6 pb-6 pt-6">
         {reservations.length > 0 ? (
           <div className="space-y-4">
             {reservations.map((reservation) => (

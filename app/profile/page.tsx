@@ -2,7 +2,6 @@ import { Link } from "@/components/common/AppLink";
 import { CalendarDays, ChevronRight, Heart, Settings } from "lucide-react";
 import { AppShell } from "@/components/common/AppShell";
 import { Avatar } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const profileItems = [
@@ -17,9 +16,8 @@ export default function ProfilePage() {
       <main className="space-y-6 px-6 pb-6 pt-8">
         <section className="flex items-center gap-4">
           <Avatar src="/images/cat-xueqiu.svg" alt="用户头像" size="lg" />
-          <div>
-            <p className="text-sm text-muted-foreground">我的</p>
-            <h1 className="mt-1 text-2xl font-bold text-foreground">第一次来猫咖</h1>
+          <div className="flex min-h-20 items-center">
+            <h1 className="text-2xl font-bold text-foreground">新手2004</h1>
           </div>
         </section>
         <div className="grid grid-cols-2 gap-3">
@@ -57,9 +55,6 @@ export default function ProfilePage() {
             })}
           </CardContent>
         </Card>
-        <Button asChild className="w-full" aria-label="继续找陪伴猫">
-          <Link href="/cats">继续找陪伴猫</Link>
-        </Button>
       </main>
     </AppShell>
   );

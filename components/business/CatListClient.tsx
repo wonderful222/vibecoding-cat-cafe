@@ -7,7 +7,7 @@ import { CatCard } from "@/components/business/CatCard";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const filters = ["全部", "安静", "适中", "活泼"] as const;
+const filters = ["全部", "安静", "适中", "活泼", "亲近"] as const;
 
 interface CatListClientProps {
   cats: CatProfile[];
@@ -22,7 +22,7 @@ export function CatListClient({ cats }: CatListClientProps) {
       const keywordValue = keyword.trim();
       const matchesKeyword =
         keywordValue.length === 0 || [cat.name, ...cat.tags].some((item) => item.includes(keywordValue));
-      const matchesFilter = filter === "全部" || cat.energy === filter;
+      const matchesFilter = filter === "全部" || cat.energy === filter || cat.interaction === filter;
       return matchesKeyword && matchesFilter;
     });
   }, [cats, filter, keyword]);
@@ -30,12 +30,7 @@ export function CatListClient({ cats }: CatListClientProps) {
   return (
     <div>
       <section className="bg-primary px-6 pb-6 pt-9">
-        <div className="flex items-baseline gap-2">
-          <h1 className="text-2xl font-bold leading-none text-foreground">陪伴猫</h1>
-          <p className="text-sm font-medium text-primary-strong">找一只今天适合你的猫！</p>
-        </div>
-
-        <label className="relative mt-5 block">
+        <label className="relative block">
           <Search
             aria-hidden="true"
             className="pointer-events-none absolute left-5 top-1/2 h-6 w-6 -translate-y-1/2 text-muted-foreground"
@@ -49,7 +44,7 @@ export function CatListClient({ cats }: CatListClientProps) {
           />
         </label>
 
-        <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
+        <div className="mt-4 grid grid-cols-5 gap-2">
           {filters.map((item) => (
             <Button
               key={item}
@@ -59,7 +54,7 @@ export function CatListClient({ cats }: CatListClientProps) {
               onClick={() => setFilter(item)}
               aria-label={`筛选${item}猫咪`}
               className={cn(
-                "h-9 min-h-9 min-w-[64px] rounded-full px-4 text-sm font-bold shadow-none",
+                "h-9 min-h-9 rounded-full px-0 text-sm font-bold shadow-none",
                 filter === item
                   ? "border-white bg-card text-foreground"
                   : "border-2 border-white bg-transparent text-white"
