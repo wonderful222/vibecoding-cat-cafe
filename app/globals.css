@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafaf8;
+  --foreground: #222222;
+  --card: #ffffff;
+  --card-foreground: #222222;
+  --popover: #ffffff;
+  --popover-foreground: #222222;
+  --primary: #fec81f;
+  --primary-foreground: #222222;
+  --primary-strong: #9a6a00;
+  --secondary: #f7b267;
+  --secondary-foreground: #222222;
+  --muted: #f4f4f1;
+  --muted-foreground: #666666;
+  --accent: #fff5c7;
+  --accent-foreground: #222222;
+  --destructive: #e57373;
+  --destructive-foreground: #ffffff;
+  --border: #eaeaea;
+  --input: #eaeaea;
+  --ring: #fec81f;
+  --success: #68b984;
+  --warning: #f5b041;
+  --radius-button: 16px;
+  --radius-card: 20px;
+  --radius-input: 16px;
+  --shadow-card: 0 4px 16px rgb(34 34 34 / 6%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-strong: var(--primary-strong);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --font-sans: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --radius-button: var(--radius-button);
+  --radius-card: var(--radius-card);
+  --radius-input: var(--radius-input);
+  --shadow-card: var(--shadow-card);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+}
+
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+}
