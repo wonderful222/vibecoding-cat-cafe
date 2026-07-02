@@ -13,16 +13,16 @@ interface CatCardProps {
 
 export function CatCard({ cat, actionLabel = "了解它" }: CatCardProps) {
   return (
-    <Card className="overflow-hidden border-white/80 ring-1 ring-primary/10 shadow-[0_14px_30px_rgba(45,35,18,0.08)] transition duration-200 ease-out active:scale-[0.99]">
+    <Card className="overflow-hidden border-white/80 ring-1 ring-primary/10 shadow-[0_10px_26px_rgba(58,58,58,0.07)] transition duration-200 ease-out active:scale-[0.99]">
       <Link href={`/cats/${cat.id}`} aria-label={`查看${cat.name}的详情`} className="block">
         <div className="relative aspect-[4/3] bg-muted">
           <Image src={cat.image} alt={`${cat.name}的猫咪照片`} fill sizes="342px" className="object-cover" />
         </div>
       </Link>
-      <CardContent className="relative -mt-5 rounded-t-[24px] bg-card pt-6">
+      <CardContent className="relative -mt-5 rounded-t-[22px] bg-card pt-6">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h3 className="text-lg font-semibold text-foreground">{cat.name}</h3>
+            <h3 className="text-lg font-medium text-foreground">{cat.name}</h3>
             <p className="mt-1 text-sm text-muted-foreground">{cat.status}</p>
           </div>
           <Tag tone={cat.interaction === "主动" ? "orange" : "blue"}>{cat.interaction}</Tag>

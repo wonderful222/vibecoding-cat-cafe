@@ -20,7 +20,12 @@ export function BottomNavigation() {
       <div className="mx-auto grid h-16 w-full max-w-[390px] grid-cols-4 px-2 pb-[env(safe-area-inset-bottom)]">
         {navigationItems.map((item) => {
           const Icon = item.icon;
-          const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+          const isActive =
+            item.href === "/"
+              ? pathname === "/"
+              : item.href === "/reservations"
+                ? pathname.startsWith("/reservations") || pathname.startsWith("/reserve")
+                : pathname.startsWith(item.href);
 
           return (
             <Link

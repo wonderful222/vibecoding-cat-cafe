@@ -16,7 +16,7 @@ export function Tag({ className, tone = "neutral", ...props }: TagProps) {
   return (
     <span
       className={cn(
-        "inline-flex h-8 items-center rounded-full px-3 text-sm leading-none",
+        "inline-flex h-8 items-center rounded-full px-3 text-sm font-normal leading-none",
         toneClassName[tone],
         className
       )}

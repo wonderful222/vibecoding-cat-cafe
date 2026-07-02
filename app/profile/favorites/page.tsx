@@ -1,8 +1,9 @@
 "use client";
 
 import { Link } from "@/components/common/AppLink";
-import { ArrowLeft, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 import { AppShell } from "@/components/common/AppShell";
+import { PageHeader } from "@/components/common/PageHeader";
 import { CatCard } from "@/components/business/CatCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,17 +16,8 @@ export default function FavoritesPage() {
 
   return (
     <AppShell>
-      <main className="space-y-6 px-6 pb-6 pt-6">
-        <Button asChild variant="ghost" className="px-0" aria-label="返回我的页面">
-          <Link href="/profile">
-            <ArrowLeft className="h-5 w-5" />
-            返回我的
-          </Link>
-        </Button>
-        <section>
-          <p className="text-sm text-muted-foreground">我的收藏</p>
-          <h1 className="mt-2 text-2xl font-bold text-foreground">这些小猫适合慢慢了解。</h1>
-        </section>
+      <main className="space-y-5 px-6 pb-6 pt-6">
+        <PageHeader title="我的收藏" backHref="/profile" backLabel="返回我的页面" />
 
         {favoriteCats.length > 0 ? (
           <div className="space-y-4">

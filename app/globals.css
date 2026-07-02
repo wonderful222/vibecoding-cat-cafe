@@ -2,31 +2,31 @@
 
 :root {
   --background: #fafaf8;
-  --foreground: #222222;
+  --foreground: #3a3a3a;
   --card: #ffffff;
-  --card-foreground: #222222;
+  --card-foreground: #3a3a3a;
   --popover: #ffffff;
-  --popover-foreground: #222222;
-  --primary: #fec81f;
-  --primary-foreground: #222222;
-  --primary-strong: #9a6a00;
+  --popover-foreground: #3a3a3a;
+  --primary: #fdca18;
+  --primary-foreground: #3a3a3a;
+  --primary-strong: #8a6400;
   --secondary: #f7b267;
-  --secondary-foreground: #222222;
+  --secondary-foreground: #736d66;
   --muted: #f4f4f1;
-  --muted-foreground: #666666;
+  --muted-foreground: #736d66;
   --accent: #fff5c7;
-  --accent-foreground: #222222;
+  --accent-foreground: #3a3a3a;
   --destructive: #e57373;
   --destructive-foreground: #ffffff;
-  --border: #eaeaea;
-  --input: #eaeaea;
-  --ring: #fec81f;
+  --border: #eee9df;
+  --input: #eee9df;
+  --ring: #fdca18;
   --success: #68b984;
   --warning: #f5b041;
-  --radius-button: 16px;
-  --radius-card: 20px;
-  --radius-input: 16px;
-  --shadow-card: 0 4px 16px rgb(34 34 34 / 6%);
+  --radius-button: 18px;
+  --radius-card: 24px;
+  --radius-input: 22px;
+  --shadow-card: 0 12px 30px rgb(58 58 58 / 7%);
 }
 
 @theme inline {

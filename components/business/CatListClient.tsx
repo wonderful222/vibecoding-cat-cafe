@@ -29,7 +29,7 @@ export function CatListClient({ cats }: CatListClientProps) {
 
   return (
     <div>
-      <section className="bg-primary px-6 pb-6 pt-9">
+      <section className="bg-primary px-6 pb-0 pt-5">
         <label className="relative block">
           <Search
             aria-hidden="true"
@@ -40,7 +40,7 @@ export function CatListClient({ cats }: CatListClientProps) {
             onChange={(event) => setKeyword(event.target.value)}
             placeholder="搜索猫咪昵称或性格"
             aria-label="搜索猫咪昵称或性格"
-            className="h-16 w-full rounded-[22px] border border-transparent bg-card pl-14 pr-5 text-base font-semibold text-foreground shadow-card outline-none transition duration-150 placeholder:text-muted-foreground focus:border-primary-strong/30 focus:ring-2 focus:ring-primary-strong/15"
+            className="h-16 w-full rounded-[22px] border border-transparent bg-card pl-14 pr-5 text-base font-normal text-foreground shadow-card outline-none transition duration-150 placeholder:font-normal placeholder:text-muted-foreground focus:border-primary-strong/30 focus:ring-2 focus:ring-primary-strong/15"
           />
         </label>
 
@@ -54,9 +54,9 @@ export function CatListClient({ cats }: CatListClientProps) {
               onClick={() => setFilter(item)}
               aria-label={`筛选${item}猫咪`}
               className={cn(
-                "h-9 min-h-9 rounded-full px-0 text-sm font-bold shadow-none",
+                "h-9 min-h-9 rounded-full px-0 text-sm font-medium shadow-none",
                 filter === item
-                  ? "border-white bg-card text-foreground"
+                  ? "border-white bg-card text-muted-foreground"
                   : "border-2 border-white bg-transparent text-white"
               )}
             >
@@ -66,9 +66,9 @@ export function CatListClient({ cats }: CatListClientProps) {
         </div>
       </section>
 
-      <div className="h-7 bg-[#9b6e0d]" />
+      <div className="h-6 rounded-b-[28px] bg-[#fdca18]" />
 
-      <section className="space-y-4 px-5 pt-5">
+      <section className="space-y-4 px-5 pt-3">
         {visibleCats.length > 0 ? (
           visibleCats.map((cat) => <CatCard key={cat.id} cat={cat} />)
         ) : (

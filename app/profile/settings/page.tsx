@@ -1,22 +1,17 @@
 import { Link } from "@/components/common/AppLink";
-import { ArrowLeft, BellOff, ShieldCheck } from "lucide-react";
+import { BellOff, ShieldCheck } from "lucide-react";
 import { AppShell } from "@/components/common/AppShell";
+import { PageHeader } from "@/components/common/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function SettingsPage() {
   return (
     <AppShell>
-      <main className="space-y-6 px-6 pb-6 pt-6">
-        <Button asChild variant="ghost" className="px-0" aria-label="返回我的页面">
-          <Link href="/profile">
-            <ArrowLeft className="h-5 w-5" />
-            返回我的
-          </Link>
-        </Button>
+      <main className="space-y-5 px-6 pb-6 pt-6">
+        <PageHeader title="基础设置" backHref="/profile" backLabel="返回我的页面" />
         <section>
-          <p className="text-sm text-muted-foreground">基础设置</p>
-          <h1 className="mt-2 text-2xl font-bold text-foreground">保持简单就好。</h1>
+          <h1 className="text-2xl font-bold text-foreground">保持简单就好。</h1>
         </section>
         <Card>
           <CardContent className="space-y-5">

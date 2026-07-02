@@ -10,51 +10,67 @@ const profileItems = [
   { href: "/profile/settings", label: "基础设置", icon: Settings }
 ];
 
+const summaryItems = [
+  { href: "/reservations", value: "1", label: "待见面", ariaLabel: "查看我的预约" },
+  { href: "/profile/favorites", value: "2", label: "心愿猫咪", ariaLabel: "查看我的收藏" }
+];
+
 export default function ProfilePage() {
   return (
     <AppShell>
-      <main className="space-y-6 px-6 pb-6 pt-8">
-        <section className="flex items-center gap-4">
-          <Avatar src="/images/cat-xueqiu.svg" alt="用户头像" size="lg" />
-          <div className="flex min-h-20 items-center">
-            <h1 className="text-2xl font-bold text-foreground">新手2004</h1>
+      <main className="pb-8">
+        <section className="rounded-b-[28px] bg-primary px-8 pb-6 pt-9">
+          <div className="flex items-center gap-5">
+            <Avatar
+              src="/images/cat-xueqiu.svg"
+              alt="用户头像"
+              size="lg"
+              className="h-16 w-16 bg-card ring-0"
+            />
+            <div>
+              <h1 className="text-[24px] font-semibold leading-tight text-foreground">新手2004</h1>
+              <p className="mt-2 text-sm font-normal leading-none text-muted-foreground">ID：18926154811</p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-2 gap-3">
+            {summaryItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-label={item.ariaLabel}
+                className="block rounded-[20px] bg-card px-4 py-4 shadow-[0_8px_20px_rgba(58,58,58,0.05)] transition duration-150 active:scale-[0.99]"
+              >
+                <p className="text-2xl font-semibold leading-none text-foreground">{item.value}</p>
+                <p className="mt-2 text-sm font-normal text-muted-foreground">{item.label}</p>
+              </Link>
+            ))}
           </div>
         </section>
-        <div className="grid grid-cols-2 gap-3">
+
+        <section className="px-6 pt-5">
           <Card>
-            <CardContent>
-              <p className="text-2xl font-bold text-foreground">1</p>
-              <p className="mt-1 text-sm text-muted-foreground">待见面</p>
+            <CardContent className="divide-y divide-border p-0">
+              {profileItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="flex min-h-16 items-center justify-between px-5 py-4 transition duration-150 active:scale-[0.99]"
+                    aria-label={item.label}
+                  >
+                    <span className="flex items-center gap-3 text-base font-medium text-foreground">
+                      <Icon className="h-5 w-5 text-primary-strong" />
+                      {item.label}
+                    </span>
+                    <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                  </Link>
+                );
+              })}
             </CardContent>
           </Card>
-          <Card>
-            <CardContent>
-              <p className="text-2xl font-bold text-foreground">2</p>
-              <p className="mt-1 text-sm text-muted-foreground">心愿猫咪</p>
-            </CardContent>
-          </Card>
-        </div>
-        <Card>
-          <CardContent className="divide-y divide-border p-0">
-            {profileItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="flex min-h-14 items-center justify-between px-4 py-3 transition duration-150 active:scale-[0.99]"
-                  aria-label={item.label}
-                >
-                  <span className="flex items-center gap-3 text-base font-semibold text-foreground">
-                    <Icon className="h-5 w-5 text-primary-strong" />
-                    {item.label}
-                  </span>
-                  <ChevronRight className="h-5 w-5 text-muted-foreground" />
-                </Link>
-              );
-            })}
-          </CardContent>
-        </Card>
+        </section>
       </main>
     </AppShell>
   );

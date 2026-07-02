@@ -1,6 +1,7 @@
 import { PawPrint, ReceiptText } from "lucide-react";
 import { notFound } from "next/navigation";
 import { AppShell } from "@/components/common/AppShell";
+import { PageHeader } from "@/components/common/PageHeader";
 import { ConfirmReservationButton } from "@/components/business/ConfirmReservationButton";
 import { Card, CardContent } from "@/components/ui/card";
 import { getCatById } from "@/data/cats";
@@ -24,11 +25,8 @@ export default async function ConfirmPage({ params, searchParams }: ConfirmPageP
 
   return (
     <AppShell>
-      <main className="space-y-6 px-6 pb-6 pt-8">
-        <section>
-          <p className="text-sm text-muted-foreground">确认预约</p>
-          <h1 className="mt-2 text-2xl font-bold text-foreground">把这段时间留给 {cat.name}。</h1>
-        </section>
+      <main className="space-y-5 px-6 pb-6 pt-6">
+        <PageHeader title="确认预约" backHref={`/reserve/${cat.id}`} backLabel={`返回${cat.name}预约选择`} />
         <Card>
           <CardContent className="space-y-4">
             <div className="flex items-center gap-3">

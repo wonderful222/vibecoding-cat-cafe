@@ -1,9 +1,10 @@
 "use client";
 
 import { Link } from "@/components/common/AppLink";
-import { ArrowLeft, MapPin, ReceiptText } from "lucide-react";
+import { MapPin, ReceiptText } from "lucide-react";
 import { useParams } from "next/navigation";
 import { AppShell } from "@/components/common/AppShell";
+import { PageHeader } from "@/components/common/PageHeader";
 import { CancelReservationButton } from "@/components/business/ReservationActions";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -18,20 +19,11 @@ export default function ReservationDetailPage() {
 
   return (
     <AppShell>
-      <main className="space-y-6 px-6 pb-6 pt-6">
-        <Button asChild variant="ghost" className="px-0" aria-label="返回预约列表">
-          <Link href="/reservations">
-            <ArrowLeft className="h-5 w-5" />
-            返回预约
-          </Link>
-        </Button>
+      <main className="space-y-5 px-6 pb-6 pt-6">
+        <PageHeader title="预约详情" backHref="/reservations" backLabel="返回预约列表" />
 
         {reservation ? (
           <>
-            <section>
-              <p className="text-sm text-muted-foreground">预约详情</p>
-              <h1 className="mt-2 text-2xl font-bold text-foreground">这次要见 {reservation.catName}。</h1>
-            </section>
             <Card>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between gap-3">
