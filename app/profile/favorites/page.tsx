@@ -22,7 +22,7 @@ export default function FavoritesPage() {
         {favoriteCats.length > 0 ? (
           <div className="space-y-4">
             {favoriteCats.map((cat) => (
-              <CatCard key={cat.id} cat={cat} actionLabel="查看详情" />
+              <CatCard key={cat.id} cat={cat} actionLabel="逗逗我吧" />
             ))}
           </div>
         ) : (

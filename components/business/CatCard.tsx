@@ -11,7 +11,7 @@ interface CatCardProps {
   actionLabel?: string;
 }
 
-export function CatCard({ cat, actionLabel = "了解它" }: CatCardProps) {
+export function CatCard({ cat, actionLabel = "逗逗我吧" }: CatCardProps) {
   return (
     <Card className="overflow-hidden border-white/80 ring-1 ring-primary/10 shadow-[0_10px_26px_rgba(58,58,58,0.07)] transition duration-200 ease-out active:scale-[0.99]">
       <Link href={`/cats/${cat.id}`} aria-label={`查看${cat.name}的详情`} className="block">

@@ -1,8 +1,6 @@
-import { Link } from "@/components/common/AppLink";
 import { BellOff, ShieldCheck } from "lucide-react";
 import { AppShell } from "@/components/common/AppShell";
 import { PageHeader } from "@/components/common/PageHeader";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function SettingsPage() {
@@ -10,9 +8,6 @@ export default function SettingsPage() {
     <AppShell>
       <main className="space-y-5 px-6 pb-6 pt-6">
         <PageHeader title="基础设置" backHref="/profile" backLabel="返回我的页面" />
-        <section>
-          <h1 className="text-2xl font-bold text-foreground">保持简单就好。</h1>
-        </section>
         <Card>
           <CardContent className="space-y-5">
             <div className="flex gap-3">
@@ -31,9 +26,6 @@ export default function SettingsPage() {
             </div>
           </CardContent>
         </Card>
-        <Button asChild className="w-full" aria-label="回到首页">
-          <Link href="/">回到首页</Link>
-        </Button>
       </main>
     </AppShell>
   );

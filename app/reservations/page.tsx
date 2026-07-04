@@ -70,12 +70,6 @@ export default function ReservationsPage() {
             </CardContent>
           </Card>
         )}
-
-        {reservations.length > 0 ? (
-          <Button asChild className="w-full" aria-label="去认识更多猫咪">
-            <Link href="/cats">再认识一只小猫</Link>
-          </Button>
-        ) : null}
       </main>
     </AppShell>
   );

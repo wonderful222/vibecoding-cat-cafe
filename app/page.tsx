@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { Link } from "@/components/common/AppLink";
+import { SmoothScrollLink } from "@/components/common/SmoothScrollLink";
 import { PawPrint } from "lucide-react";
 import { AppShell } from "@/components/common/AppShell";
 import { CatCard } from "@/components/business/CatCard";
-import { cats, todayCompanion } from "@/data/cats";
+import { cats } from "@/data/cats";
 
 const quickActions = [
   {
-    href: `/reserve/${todayCompanion.id}`,
+    href: "#available-cats",
     title: "快速预约",
     subtitle: "APPOINTMENT",
     icon: "/images/quick-appointment.svg",
@@ -55,8 +56,10 @@ export default function HomePage() {
 
           <div className="mt-5 grid grid-cols-2 gap-3">
             {quickActions.map((action) => {
+              const ActionLink = action.href.startsWith("#") ? SmoothScrollLink : Link;
+
               return (
-                <Link
+                <ActionLink
                   key={action.href}
                   href={action.href}
                   aria-label={action.ariaLabel}
@@ -76,26 +79,23 @@ export default function HomePage() {
                   <span className="mt-2 text-[12px] font-black tracking-[0.04em]">
                     {action.subtitle}
                   </span>
-                </Link>
+                </ActionLink>
               );
             })}
           </div>
         </section>
 
-        <section className="mx-5 mt-5 rounded-[24px] bg-card p-5 shadow-card">
+        <section id="available-cats" className="mx-5 mt-5 rounded-[24px] bg-card p-5 shadow-card">
           <div className="flex items-center justify-between gap-4">
             <div>
               <p className="text-sm text-muted-foreground">陪伴猫选项卡</p>
-              <h2 className="mt-1 text-xl font-semibold text-foreground">今天想先认识谁</h2>
+              <h2 className="mt-1 text-xl font-semibold text-foreground">现在有空的猫咪</h2>
             </div>
-            <Link href="/cats" className="text-sm font-semibold text-primary-strong" aria-label="查看全部猫咪">
-              全部
-            </Link>
           </div>
 
           <div className="mt-5 space-y-4">
             {cats.map((cat) => (
-              <CatCard key={cat.id} cat={cat} actionLabel="查看详情" />
+              <CatCard key={cat.id} cat={cat} actionLabel="逗逗我吧" />
             ))}
           </div>
         </section>
