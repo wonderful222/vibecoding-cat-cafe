@@ -7,7 +7,7 @@ interface TagProps extends HTMLAttributes<HTMLSpanElement> {
 
 const toneClassName: Record<NonNullable<TagProps["tone"]>, string> = {
   blue: "bg-accent text-primary-strong",
-  orange: "bg-secondary/20 text-secondary-foreground",
+  orange: "bg-accent-pink text-primary-strong",
   green: "bg-success/15 text-success",
   neutral: "bg-muted text-muted-foreground"
 };

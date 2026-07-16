@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafaf8;
+  --background: #fffef9;
   --foreground: #3a3a3a;
   --card: #ffffff;
   --card-foreground: #3a3a3a;
@@ -10,23 +10,20 @@
   --primary: #fdca18;
   --primary-foreground: #3a3a3a;
   --primary-strong: #8a6400;
-  --secondary: #f7b267;
-  --secondary-foreground: #736d66;
   --muted: #f4f4f1;
   --muted-foreground: #736d66;
+  --placeholder: #a8a095;
   --accent: #fff5c7;
   --accent-foreground: #3a3a3a;
-  --destructive: #e57373;
-  --destructive-foreground: #ffffff;
+  --accent-pink: #fde1e1;
   --border: #eee9df;
   --input: #eee9df;
   --ring: #fdca18;
   --success: #68b984;
-  --warning: #f5b041;
-  --radius-button: 18px;
+  --radius-button: 16px;
   --radius-card: 24px;
-  --radius-input: 22px;
-  --shadow-card: 0 12px 30px rgb(58 58 58 / 7%);
+  --radius-input: 16px;
+  --shadow-card: 0 8px 24px rgb(58 58 58 / 5%);
 }
 
 @theme inline {
@@ -37,19 +34,16 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-strong: var(--primary-strong);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+  --color-placeholder: var(--placeholder);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
+  --color-accent-pink: var(--accent-pink);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-success: var(--success);
-  --color-warning: var(--warning);
   --font-sans: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
   --radius-button: var(--radius-button);
   --radius-card: var(--radius-card);

@@ -1,4 +1,4 @@
-# TanHaoMao
+# YueHaoMao
 
 Version 1.0
 
@@ -6,7 +6,7 @@ Version 1.0
 
 # Project Overview
 
-TanHaoMao (叹好猫) is a mobile-first companion selection application designed for first-time visitors to cat cafés.
+YueHaoMao (约好猫) is a mobile-first companion selection application designed for first-time visitors to cat cafés.
 
 The product helps users build one enjoyable and continuous interaction with a suitable cat before arriving at the café.
 

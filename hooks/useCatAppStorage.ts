@@ -3,8 +3,11 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { ReservationRecord } from "@/types/reservation";
 
-const FAVORITES_KEY = "tan-hao-mao:favorites";
-const RESERVATIONS_KEY = "tan-hao-mao:reservations";
+const FAVORITES_KEY = "yue-hao-mao:favorites";
+const RESERVATIONS_KEY = "yue-hao-mao:reservations";
+const LEGACY_FAVORITES_KEY = "tan-hao-mao:favorites";
+const LEGACY_RESERVATIONS_KEY = "tan-hao-mao:reservations";
+const STORAGE_EVENT = "yue-hao-mao-storage";
 
 function readJson<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") {
@@ -21,21 +24,40 @@ function readJson<T>(key: string, fallback: T): T {
 
 function writeJson<T>(key: string, value: T) {
   window.localStorage.setItem(key, JSON.stringify(value));
-  window.dispatchEvent(new Event("tan-hao-mao-storage"));
+  window.dispatchEvent(new Event(STORAGE_EVENT));
+}
+
+function migrateJson<T>(key: string, legacyKey: string, fallback: T): T {
+  const current = readJson<T | null>(key, null);
+  if (current !== null) {
+    return current;
+  }
+
+  const legacy = readJson<T | null>(legacyKey, null);
+  if (legacy !== null) {
+    window.localStorage.setItem(key, JSON.stringify(legacy));
+    return legacy;
+  }
+
+  return fallback;
 }
 
 export function useFavorites() {
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    const sync = () => setFavoriteIds(readJson<string[]>(FAVORITES_KEY, []));
+    const sync = () => {
+      setFavoriteIds(migrateJson<string[]>(FAVORITES_KEY, LEGACY_FAVORITES_KEY, []));
+      setIsReady(true);
+    };
     sync();
     window.addEventListener("storage", sync);
-    window.addEventListener("tan-hao-mao-storage", sync);
+    window.addEventListener(STORAGE_EVENT, sync);
 
     return () => {
       window.removeEventListener("storage", sync);
-      window.removeEventListener("tan-hao-mao-storage", sync);
+      window.removeEventListener(STORAGE_EVENT, sync);
     };
   }, []);
 
@@ -43,9 +65,7 @@ export function useFavorites() {
 
   const toggleFavorite = useCallback(
     (catId: string) => {
-      const next = favoriteSet.has(catId)
-        ? favoriteIds.filter((id) => id !== catId)
-        : [...favoriteIds, catId];
+      const next = favoriteSet.has(catId) ? favoriteIds.filter((id) => id !== catId) : [...favoriteIds, catId];
       setFavoriteIds(next);
       writeJson(FAVORITES_KEY, next);
     },
@@ -54,6 +74,7 @@ export function useFavorites() {
 
   return {
     favoriteIds,
+    isReady,
     isFavorite: (catId: string) => favoriteSet.has(catId),
     toggleFavorite
   };
@@ -61,16 +82,20 @@ export function useFavorites() {
 
 export function useReservations() {
   const [reservations, setReservations] = useState<ReservationRecord[]>([]);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    const sync = () => setReservations(readJson<ReservationRecord[]>(RESERVATIONS_KEY, []));
+    const sync = () => {
+      setReservations(migrateJson<ReservationRecord[]>(RESERVATIONS_KEY, LEGACY_RESERVATIONS_KEY, []));
+      setIsReady(true);
+    };
     sync();
     window.addEventListener("storage", sync);
-    window.addEventListener("tan-hao-mao-storage", sync);
+    window.addEventListener(STORAGE_EVENT, sync);
 
     return () => {
       window.removeEventListener("storage", sync);
-      window.removeEventListener("tan-hao-mao-storage", sync);
+      window.removeEventListener(STORAGE_EVENT, sync);
     };
   }, []);
 
@@ -97,6 +122,7 @@ export function useReservations() {
 
   return {
     reservations,
+    isReady,
     addReservation,
     cancelReservation
   };

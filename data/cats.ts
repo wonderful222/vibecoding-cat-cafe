@@ -8,12 +8,12 @@ export const cats: CatProfile[] = [
     gender: "妹妹",
     image: "/images/cat-nuomi.png",
     heroImage: "/images/cat-nuomi-hero.png",
-    tags: ["温柔", "慢热", "爱晒太阳"],
+    tags: ["温柔", "粘人", "爱晒太阳"],
     energy: "安静",
     interaction: "慢热",
     status: "适合安静陪伴",
     matchReason: "糯米不急着靠近人，但会在你保持安静时慢慢放松。",
-    bestFor: "第一次来、希望节奏轻一点的人",
+    bestFor: "希望节奏轻一点的人",
     gentleTip: "先坐在她侧前方，伸手前给她一点观察时间。",
     detail: "她喜欢稳定、轻声的互动。比起追逐玩具，她更愿意在熟悉的距离里陪你待一会儿。"
   },
@@ -29,7 +29,7 @@ export const cats: CatProfile[] = [
     interaction: "主动",
     status: "今天状态很好",
     matchReason: "雪球会主动观察新朋友，适合想快速建立互动的人。",
-    bestFor: "希望被回应、但不想太热闹的人",
+    bestFor: "希望被回应的人",
     gentleTip: "用逗猫棒慢慢划小弧线，他会更容易跟上。",
     detail: "他喜欢短距离游戏，也会在玩累后靠近休息。互动时保持动作轻一点，会让他更愿意停留。"
   },

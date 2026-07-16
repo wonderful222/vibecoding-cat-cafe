@@ -3,7 +3,6 @@
 import { Link } from "@/components/common/AppLink";
 import { Heart } from "lucide-react";
 import { AppShell } from "@/components/common/AppShell";
-import { PageHeader } from "@/components/common/PageHeader";
 import { CatCard } from "@/components/business/CatCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,18 +10,18 @@ import { cats } from "@/data/cats";
 import { useFavorites } from "@/hooks/useCatAppStorage";
 
 export default function FavoritesPage() {
-  const { favoriteIds } = useFavorites();
+  const { favoriteIds, isReady } = useFavorites();
   const favoriteCats = cats.filter((cat) => favoriteIds.includes(cat.id));
 
   return (
     <AppShell>
-      <main className="space-y-5 px-6 pb-6 pt-6">
-        <PageHeader title="我的收藏" backHref="/profile" backLabel="返回我的页面" />
-
-        {favoriteCats.length > 0 ? (
+      <main className="px-6 pb-6 pt-5">
+        {!isReady ? (
+          <div aria-hidden="true" className="h-[220px] rounded-[24px] bg-card shadow-card" />
+        ) : favoriteCats.length > 0 ? (
           <div className="space-y-4">
             {favoriteCats.map((cat) => (
-              <CatCard key={cat.id} cat={cat} actionLabel="逗逗我吧" />
+              <CatCard key={cat.id} cat={cat} />
             ))}
           </div>
         ) : (

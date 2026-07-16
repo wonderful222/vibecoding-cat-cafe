@@ -1,6 +1,6 @@
 # 02-information-architecture.md
 
-# TanHaoMao Information Architecture
+# YueHaoMao Information Architecture
 
 Version 1.0.0
 

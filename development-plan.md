@@ -1,6 +1,6 @@
 # 07-development-plan.md
 
-# TanHaoMao Development Plan
+# YueHaoMao Development Plan
 
 Version 1.0.0
 

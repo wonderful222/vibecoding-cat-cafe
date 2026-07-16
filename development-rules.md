@@ -1,6 +1,6 @@
 # 05-development-rules.md
 
-# TanHaoMao Development Rules
+# YueHaoMao Development Rules
 
 Version 1.0.0
 

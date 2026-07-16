@@ -1,6 +1,6 @@
 # 01-product.md
 
-# TanHaoMao Product Specification
+# YueHaoMao Product Specification
 
 Version 1.0
 
@@ -8,7 +8,7 @@ Version 1.0
 
 # Product Overview
 
-TanHaoMao（叹好猫）is a mobile-first companion selection application designed for first-time cat café visitors.
+YueHaoMao（约好猫）is a mobile-first companion selection application designed for first-time cat café visitors.
 
 Instead of helping users simply "choose a cat", the product helps them build one enjoyable, continuous and meaningful interaction with a suitable cat before arriving at the café.
 
@@ -170,7 +170,7 @@ Every design decision must support this goal.
 
 # Product Position
 
-TanHaoMao is NOT
+YueHaoMao is NOT
 
 • A cat encyclopedia
 
@@ -182,7 +182,7 @@ TanHaoMao is NOT
 
 • A membership system
 
-TanHaoMao IS
+YueHaoMao IS
 
 A companion experience assistant.
 

@@ -14,7 +14,7 @@ export function Input({ className, icon, ...props }: InputProps) {
       ) : null}
       <input
         className={cn(
-          "h-12 w-full rounded-[var(--radius-input)] border border-border bg-card px-4 text-base text-foreground outline-none transition duration-150 placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/15",
+          "h-12 w-full rounded-[var(--radius-input)] border border-border bg-card px-4 text-base text-foreground outline-none transition duration-150 placeholder:text-placeholder focus:border-primary focus:ring-2 focus:ring-primary/15",
           icon === "search" && "pl-11",
           className
         )}

@@ -1,6 +1,6 @@
 # 06-agent-rules.md
 
-# TanHaoMao Agent Rules
+# YueHaoMao Agent Rules
 
 Version 1.0.0
 

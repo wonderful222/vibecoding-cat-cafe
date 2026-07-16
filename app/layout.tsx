@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "叹好猫",
+  title: "约好猫",
   description: "为第一次去猫咖的人，找到适合今天陪伴的小猫。"
 };
 
@@ -10,7 +10,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  themeColor: "#FAFAF8"
+  themeColor: "#FFFEF9"
 };
 
 export default function RootLayout({

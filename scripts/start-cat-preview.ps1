@@ -41,13 +41,13 @@ while ((Get-Date) -lt $deadline) {
     if ($Open) {
       Start-Process $HealthUrl
     }
-    Write-Host "TanHaoMao preview is ready: $HealthUrl"
+    Write-Host "YueHaoMao preview is ready: $HealthUrl"
     exit 0
   }
   Start-Sleep -Milliseconds 500
 }
 
-Write-Host "TanHaoMao preview did not become ready. Check logs:"
+Write-Host "YueHaoMao preview did not become ready. Check logs:"
 Write-Host $OutLog
 Write-Host $ErrLog
 exit 1
