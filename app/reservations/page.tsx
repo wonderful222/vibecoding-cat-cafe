@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { CalendarDays } from "lucide-react";
 import { useMemo } from "react";
+import { Link } from "@/components/common/AppLink";
 import { AppShell } from "@/components/common/AppShell";
 import { CancelReservationButton } from "@/components/business/ReservationActions";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tag } from "@/components/ui/tag";
 import { formatPrice, getReservationPrice } from "@/data/reservations";
@@ -74,6 +76,9 @@ export default function ReservationsPage() {
               </div>
               <p className="mt-5 text-[16px] font-medium leading-6 text-foreground">还没有预约</p>
               <p className="mt-2 text-[14px] leading-5 text-muted-foreground">先认识一只适合今天陪伴你的小猫吧。</p>
+              <Button asChild className="mt-5 w-full" aria-label="去认识小猫">
+                <Link href="/cats">去认识小猫</Link>
+              </Button>
             </CardContent>
           </Card>
         )}
